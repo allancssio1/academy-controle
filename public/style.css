@@ -1,175 +1,106 @@
 @import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700&display=swap";
 
 :root{
-    --color-green: #50fa7b; /*variavel para reutilizar cor em css nomeada de "--color-green"*/
-    --color-rocket: #7159c1; /*cor da rocketseat*/
+  --color-white: #ffffff; /*variavel para reutilizar cor em css nomeada de "--color-green"*/
+  --color-rocket: #7159c1; /*cor da rocketseat*/
 }
 
 *{
-    margin:0;
-    padding: 0;
-    border: 0;
+  margin:0;
+  padding: 0;
+  border: none;
 }
 
 body{
-    background: #282a36;
-    font-family: 'Source Sans Pro', sans-serif;
-    color: white;
+  background: var(--color-rocket);
+  font-family: 'Roboto', sans-serif;
 }
-
 header{
-    padding: 32px;
-    border-bottom: 1px solid #333;
-    background: rgba(0, 0, 0, 0.1);
+  background: var(--color-white);
+  width: 100%;
+  text-align: center;
+  padding: 32px;
+  box-sizing: border-box;
 }
 
 .links{
-    text-align: center;
+  font-size: 22px;  
+}
+.links a + a{
+  margin-left: 32px;
+}
+.links a{
+  text-decoration: none;
+  color: #777777;
+  position: relative;
 }
 
-.links a{
-    color: white;
-    font-size: 18px;
-    line-height: 28px;
-    margin: 0px 16px;
-    text-decoration: none;
+.links a.active{
+  font-weight: bold;
+  color: var(--color-rocket);
 }
 .links a:hover{
-    color: var(--color-green);
-    transition: color 200ms;
+  color: var(--color-rocket);
 }
-#wrapper{
-    text-align: center;
-    padding: 32px;
+.links a::after{
+  content: "";
+  width: 00%;
+  height: 2px;
+  background-color: var(--color-rocket);
+  position: absolute;
+  left: 0;
+  bottom: -4px;
 }
-#wrapper img{
-    border-radius: 50%;
-    border: 5px solid var(--color-green);
-    margin-bottom: 32px;
-    height: 250px;
-}
-#wrapper h1{
-    font-size: 42px;
-    line-height: 60px;
-    font-weight: bold;
-}
-#wrapper h2{
-    font-size: 24px;
-    line-height: 34px;
-    font-weight: normal;
-    margin-top: 8px;
-    opacity: 0.8;
-}
-#wrapper p{
-    max-width: 500px;
-    margin: 30px auto;
-    font-size: 20px;
-    line-height: 34px;
-}
-#wrapper p a{
-    color: var(--color-green);
+.links a:hover::after{
+  width: 100%;
+  transition: width 400ms ease-in-out;
 }
 
-#linksFooter a{
-    border-bottom: 1px solid var(--color-green);
-}
-
-
-
-/*===CARDS===*/
-.cards{
-    width: 800px;
-    margin: 0px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-}
+/* === CARD ===*/
 .card{
-    background: var(--color-rocket);
-    display: grid;
-}
-.card-image img{
-    width: 100%;
-}
-.card-content, .card-info{
-    padding: 24px;
+  min-height: 400px;
+  width: 800px;
+  background-color: white;
+  margin: 45px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 10px 10px 20px #644f79;
+
+  /* animation */
+  animation: up 200ms ease-out;
 }
 
-.card-info{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+/* === DETALHES === */
+.details{
+  padding: 20px;
 }
-.card-price{
-    background-color: var(--color-rocket);
-    filter: brightness(90%);
-    padding: 5px 20px;
-    border-radius: 20px;
-    text-align: center;
+.details .item{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px 0;
 }
-
-/*===FATURED===*/
-.featured-wrapper.card-image{
-    position: relative;
+.details .item:last-child{
+  border: none;
 }
-.featured{
-    position: absolute;
-    top: 130px;
-    right: 5px;
-    background: #ff9944;
-    border-radius: 16px;
-    padding: 2px 8px;
-
+.details .item  div:nth-child(1){
+  font-size: 14px;
+  color: #777;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+  font-weight: normal;
+}
+.details .item div:nth-child(2){
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
 }
 
-/*===MODAL===*/
-.modal-overlay{
-    background-color: rgba(0, 0, 0, 0.7);
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
+/* ==ANIMATION == */
+@keyframes up{
+  0%{
     opacity: 0;
-    visibility: hidden;
-}
-.modal{
-    background-color: white;
-    width: 90%;
-    height: 90%;
-    margin: 5vh auto;
-    position: relative;
-}
-.modal .close-modal{
-    color: black;
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    cursor: pointer;
-}
-/*===MODAL ACTIVE===*/
-.modal-overlay.active{
+    transform: translateY(20px);
+  }
+  100%{
     opacity: 1;
-    visibility: visible;
-}
-iframe{
-    width: 100%;
-    height: 95%;
-    position: absolute;
-    top: 5%;
-}
-
-/*===VIDEO PAGE===*/
-.video{
-    margin: 0 auto;
-    max-width: 800px;
-}
-.card-video{
-    position: relative;
-    padding-top: 60%;
-}
-.card-video iframe{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0%;
+  }
 }
