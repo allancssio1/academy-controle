@@ -1,5 +1,31 @@
 {
   "instructors": [
-  
+    {
+      "id": 1,
+      "avatar_url": "https://source.unsplash.com/collection/8969654/500x500",
+      "name": "Allan",
+      "birth": 605750400000,
+      "created_at": 1595882645144,
+      "gender": "M",
+      "services": "Jiujitsu"
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://source.unsplash.com/collection/8969654/500x500",
+      "name": "Elenice Rodrigues",
+      "birth": 1264204800000,
+      "created_at": 1595882664660,
+      "gender": "F",
+      "services": "capoeira"
+    },
+    {
+      "id": 3,
+      "avatar_url": "https://source.unsplash.com/collection/8969654/500x500",
+      "name": "Felipe",
+      "birth": 1506643200000,
+      "created_at": 1595886224816,
+      "gender": "M",
+      "services": "musculação, crossfit"
+    }
   ]
 }

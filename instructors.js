@@ -1,5 +1,45 @@
 const fs = require('fs')
 const data = require('./data.json')
+const { age, date } = require('./utils')
+const Intl = require('intl')
+
+// function for show instructors
+exports.show = function (req, res) {
+  const { id } = req.params
+  
+  const foundInstructor = data.instructors.find(function(instructor){
+    return instructor.id == id
+
+  })
+  if(!foundInstructor) return res.send('Instructor not found!')
+
+  const instructor = {
+    ...foundInstructor,
+    age: age (foundInstructor.birth),
+    // gender:"",
+    services: foundInstructor.services.split(","),
+    created_at: Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
+  }
+
+  return res.render('instructors/show', { instructor })
+}
+
+//function for edit instructor
+exports.edit = function (req, res) {
+  const { id } = req.params
+  
+  const foundInstructor = data.instructors.find(function(instructor){
+    return instructor.id == id
+  })
+  if (!foundInstructor) return res.send ('Instructor not found!')
+  
+  const instructor = {
+    ...foundInstructor,
+    birth: date(foundInstructor.birth)
+  }
+
+  return res.render('instructors/edit', { instructor })
+}
 
 //function for create
 exports.post = function (req, res) {

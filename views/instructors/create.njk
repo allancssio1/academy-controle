@@ -9,50 +9,10 @@
     </section>
     
     <section class="details">
-      <h3>detalhes</h3>
-      <div class="item">
-        <div>Avatar URL</div>
-        <div>
-          <input type="url" name="avatar_url" placeholder="http://">
-        </div>
-      </div>
+      <h3>Cadastrar Instructor</h3>
       
-      <div class="item">
-        <div>Instructor</div>
-        <div>
-          <input type="text" name="name" placeholder="Nome do Instrutor">
-          </div>
-      </div>
-      
-      <div class="item">
-        <div>Data de Nascimento</div>
-        <div>
-          <input type="date" name="birth">
-        </div>
-      </div>
-      
-      <div class="item">
-        <div>Sexo</div>
-        <div>
-          <span>
-            <input type="radio" name="gender" value="M" checked>
-            Maculino
-          </span>
-          <span>
-            <input type="radio" name="gender" value="F">
-            Feminino
-          </span>
-        </div>
-      </div>
-      
-      <div class="item">
-        <div>Área de Atuação</div>
-        <div>
-          <input type="text" name="services" placeholder="Liste os serviços">
-        </div>
-      </div>
+      {% include 'instructors/fields.njk' %}
 
-      <button type="submit">Salvar</button>
     </section>
   </form>
 
