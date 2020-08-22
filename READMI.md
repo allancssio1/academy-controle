@@ -30,9 +30,10 @@ Aplicação web para cadastro de instrutores e alunos de academias, com informa�
 
 ### Módulo 04
 
-1. Utilizando lógica de idade no back-end;
-2. Trazendo pagina com include do Nunjuks;
-3. Fazendo ajuste de datas.
+1. Criando rotas com o put para atualizar dados do usuário e Delete pra deletá-las;
+2. Utilizando lógica de idade no back-end;
+3. Trazendo pagina com include do Nunjuks;
+4. Fazendo ajuste de datas
 
 ### Módulo 05
 

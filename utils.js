@@ -1,5 +1,5 @@
 module.exports = {
-  age: function age (timestamp) {
+  age: function (timestamp) {
     const today = new Date()
     const birthDate = new Date(timestamp)
   
@@ -7,7 +7,7 @@ module.exports = {
     const month = today.getMonth() - birthDate.getMonth()
   
     if (month < 0 || month == 0 && today.getDate() < birthDate.getDate()) {
-      age =- age
+      age = age - 1
     }
   
     return age

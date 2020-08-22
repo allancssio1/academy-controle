@@ -59,6 +59,7 @@ header{
 
 /* === CARD ===*/
 .card{
+  box-sizing: border-box;
   min-height: 400px;
   width: 800px;
   background-color: white;
@@ -131,6 +132,17 @@ button[type='submit'], a.buttom{
   margin-top: 32px;
   width: 100%;
 }
+#form-delete button[type='submit']{
+  padding: 8px 32px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border-radius: 15px;
+  margin-top: 16px;
+  margin-left: 6rem;
+  width: 50%;
+}
+
 a.buttom{
   display: block;
   box-sizing: border-box;

@@ -1,31 +1,22 @@
 {
   "instructors": [
     {
-      "id": 1,
-      "avatar_url": "https://source.unsplash.com/collection/8969654/500x500",
-      "name": "Allan",
-      "birth": 605750400000,
-      "created_at": 1595882645144,
-      "gender": "M",
-      "services": "Jiujitsu"
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://source.unsplash.com/collection/8969654/500x500",
-      "name": "Elenice Rodrigues",
-      "birth": 1264204800000,
+      "id": "2",
+      "avatar_url": "https://instagram.ffor13-1.fna.fbcdn.net/v/t51.2885-19/s150x150/116471743_969730080116562_9170765629185657425_n.jpg?_nc_ht=instagram.ffor13-1.fna.fbcdn.net&_nc_ohc=MD7LUsZ4ODYAX8lNtKd&oh=e191461bf7c912d5835192b10adbe09e&oe=5F689926",
+      "name": "Elenice Rodriguess",
+      "birth": 558662400000,
       "created_at": 1595882664660,
       "gender": "F",
-      "services": "capoeira"
+      "services": "Nutrição, Musculação"
     },
     {
       "id": 3,
-      "avatar_url": "https://source.unsplash.com/collection/8969654/500x500",
-      "name": "Felipe",
-      "birth": 1506643200000,
-      "created_at": 1595886224816,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/58371478?s=460&u=6a28aa264426f86bd89d8e9f792a786f749e40fb&v=4",
+      "name": "Allan Cássio",
+      "birth": 664848000000,
+      "created_at": 1597949267103,
       "gender": "M",
-      "services": "musculação, crossfit"
+      "services": "Crossfit"
     }
   ]
 }
