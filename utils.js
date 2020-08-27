@@ -18,5 +18,10 @@ module.exports = {
     const month = `0${date.getUTCMonth() + 1}`.slice(-2)
     const day = `0${date.getUTCDate()}`.slice(-2)
     return `${yers}-${month}-${day}`
+  },
+  forService: function (element) {
+    for(let index=0; index < element.length; index++){
+      return element[index].services.split(',')
+    }
   }
 }

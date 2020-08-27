@@ -1,10 +1,17 @@
 const fs = require('fs')
 const data = require('./data.json')
-const { age, date } = require('./utils')
+const { age, date, forService } = require('./utils')
 const Intl = require('intl')
-// const { relative } = require('path')
 
-// function for show instructors
+exports.index =  function (req, res) {
+  /*const instructor = {
+    ...data.instructors,
+    services: forService(data.instructors)
+  }
+  console.log(instructor.services) */
+  return res.render('instructors/index', { instructors: data.instructors })
+}
+
 exports.show = function (req, res) {
   const { id } = req.params
   
@@ -17,7 +24,6 @@ exports.show = function (req, res) {
   const instructor = {
     ...foundInstructor,
     age: age (foundInstructor.birth),
-    // gender:"",
     services: foundInstructor.services.split(","),
     created_at: Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
   }
@@ -25,7 +31,6 @@ exports.show = function (req, res) {
   return res.render('instructors/show', { instructor })
 }
 
-//function for edit instructor
 exports.edit = function (req, res) {
   const { id } = req.params
   
@@ -90,6 +95,7 @@ exports.put = function (req, res) {
   const instructor = {
     ...foundInstructor,
     ...req.body,
+    id: Number(req.body.id),
     birth: Date.parse(req.body.birth),
   }
 
