@@ -1,4 +1,39 @@
 {
+  "members": [
+    {
+      "id": 4,
+      "avatar_url": "https://instagram.ffor13-1.fna.fbcdn.net/v/t51.2885-19/s150x150/116471743_969730080116562_9170765629185657425_n.jpg?_nc_ht=instagram.ffor13-1.fna.fbcdn.net&_nc_ohc=MD7LUsZ4ODYAX8lNtKd&oh=e191461bf7c912d5835192b10adbe09e&oe=5F689926",
+      "name": "Ellen",
+      "email": "ellen@gmai.com",
+      "birth": 558662400000,
+      "gender": "F",
+      "blood": "B0",
+      "weight": "76",
+      "height": "168"
+    },
+    {
+      "id": 5,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/58371478?s=460&u=6a28aa264426f86bd89d8e9f792a786f749e40fb&v=4",
+      "name": "Allan",
+      "email": "allan.cassio1@gmail.com",
+      "birth": 664848000000,
+      "gender": "M",
+      "blood": "A0",
+      "weight": "80",
+      "height": "170"
+    },
+    {
+      "id": 6,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/58371478?s=460&u=6a28aa264426f86bd89d8e9f792a786f749e40fb&v=4",
+      "name": "Cássio",
+      "email": "cassio@gmail.com",
+      "birth": 1273881600000,
+      "gender": "M",
+      "blood": "O1",
+      "weight": "50",
+      "height": "165"
+    }
+  ],
   "instructors": [
     {
       "id": 1,

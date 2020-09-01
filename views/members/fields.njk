@@ -1,0 +1,112 @@
+      <div class="item">
+        <div>Avatar URL</div>
+        <div>
+          <input
+            type="url"
+            name="avatar_url"
+            placeholder="http://" 
+            value="{{member.avatar_url}}"
+            >
+        </div>
+      </div>
+      
+      <div class="item">
+        <div>Membro</div>
+        <div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Nome do Membro" 
+            value="{{member.name}}"
+          >
+          </div>
+      </div>
+      
+      <div class="item">
+        <div>E-mail</div>
+        <div>
+          <input
+            type="email"
+            name="email"
+            value="{{member.email}}"
+          >
+          </div>
+      </div>
+
+      <div class="item">
+        <div>Data de Nascimento</div>
+        <div>
+          <input
+            type="date"
+            name="birth"
+            value="{{member.birth}}"
+          >
+        </div>
+      </div>
+      
+      <div class="item">
+        <div>Sexo</div>
+        <div>
+          <span>
+            <input
+              type="radio"
+              name="gender"
+              value="M"
+              {% if member.gender == 'M' %}
+                checked
+              {% endif %}
+            >Maculino
+          </span>
+          <span>
+            <input
+              type="radio"
+              name="gender"
+              value="F"
+              {% if member.gender == 'F' %}
+                checked
+              {% endif %}
+            >Feminino
+          </span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div>Tipo Sanguíneo</div>
+        <div>
+          <select name="blood" data-blood={{member.blood}}>
+            <option disabled selected value="{{member.blood}}">
+              Selecione Um Tipo
+            </option>
+            <option value="A1">A+</option>
+            <option value="A0">A-</option>
+            <option value="B1">B+</option>
+            <option value="B0">B-</option>
+            <option value="AB1">AB+</option>
+            <option value="AB-">AB-</option>
+            <option value="O1">O+</option>
+            <option value="O0">O-</option>
+          </select>
+        </div>
+      </div>
+      <div class="item">
+        <div>Peso (kg)</div>
+        <div>
+          <input
+            type="number"
+            name="weight"
+            value="{{member.weight}}"
+          >
+        </div>
+      </div>
+
+      <div class="item">
+        <div>Altura (cm)</div>
+        <div>
+          <input
+            type="number"
+            name="height"
+            value="{{member.height}}"
+          >
+        </div>
+      </div>
+      <button type="submit">Salvar</button>

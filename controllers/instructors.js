@@ -1,67 +1,32 @@
 const fs = require('fs')
-const data = require('./data.json')
-const { age, date, forService } = require('./utils')
+const data = require('../data.json')
+const { age, date } = require('../utils')
 const Intl = require('intl')
 
 exports.index =  function (req, res) {
-  /*const instructor = {
-    ...data.instructors,
-    services: forService(data.instructors)
-  }
-  console.log(instructor.services) */
-  return res.render('instructors/index', { instructors: data.instructors })
+  const instructors = data.instructors.map(instructor => {
+    return {
+    ...instructor,
+    services: instructor.services.split(',')
+  }})
+  return res.render('instructors/index', { instructors })
 }
 
-exports.show = function (req, res) {
-  const { id } = req.params
-  
-  const foundInstructor = data.instructors.find(function(instructor){
-    return instructor.id == id
-
-  })
-  if(!foundInstructor) return res.send('Instructor not found!')
-
-  const instructor = {
-    ...foundInstructor,
-    age: age (foundInstructor.birth),
-    services: foundInstructor.services.split(","),
-    created_at: Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
-  }
-
-  return res.render('instructors/show', { instructor })
-}
-
-exports.edit = function (req, res) {
-  const { id } = req.params
-  
-  const foundInstructor = data.instructors.find(function(instructor){
-    return instructor.id == id
-  })
-  if (!foundInstructor) return res.send ('Instructor not found!')
-  
-  const instructor = {
-    ...foundInstructor,
-    birth: date(foundInstructor.birth)
-  }
-
-  return res.render('instructors/edit', { instructor })
+exports.create = function (req, res) {
+  return res.render('instructors/create')
 }
 
 exports.post = function (req, res) {
   const keys = Object.keys(req.body)
-  
   for (key of keys) {
     if (req.body[key] == "") {
       return res.send('please, fill all fields')
     }  
   }
-  
   let { avatar_url, name, birth, gender, services } = req.body
-
   birth = Date.parse(birth)
   const created_at = Date.now()
   const id = Number(data.instructors.length + 1)
-  
   data.instructors.push(
     {
       id,
@@ -73,12 +38,38 @@ exports.post = function (req, res) {
       services
     }
   )
-  
   fs.writeFile("data.json", JSON.stringify (data, null, 2), function(err){ 
     if (err) return res.send('write file error')
-
     return res.redirect('instructors/create')
   })
+}
+
+exports.show = function (req, res) {
+  const { id } = req.params
+  const foundInstructor = data.instructors.find(function(instructor){
+    return instructor.id == id
+  })
+  if(!foundInstructor) return res.send('Instructor not found!')
+  const instructor = {
+    ...foundInstructor,
+    age: age (foundInstructor.birth),
+    services: foundInstructor.services.split(","),
+    created_at: Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
+  }
+  return res.render('instructors/show', { instructor })
+}
+
+exports.edit = function (req, res) {
+  const { id } = req.params
+  const foundInstructor = data.instructors.find(function(instructor){
+    return instructor.id == id
+  })
+  if (!foundInstructor) return res.send ('Instructor not found!')
+  const instructor = {
+    ...foundInstructor,
+    birth: date(foundInstructor.birth)
+  }
+  return res.render('instructors/edit', { instructor })
 }
 
 exports.put = function (req, res) {
@@ -91,20 +82,16 @@ exports.put = function (req, res) {
     }
   })
   if (!foundInstructor) return res.send('Instructor not found!')
-
   const instructor = {
     ...foundInstructor,
     ...req.body,
     id: Number(req.body.id),
     birth: Date.parse(req.body.birth),
   }
-
   data.instructors[index] = instructor
-
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function (err) {
     if(err) return res.send('Write Error!')
-
-    return res.redirect(`/instructors/${id}`)
+    return res.redirect(`instructors/${id}`)
   })
 }
 
@@ -114,10 +101,8 @@ exports.delete = function (req, res){
     return instructor.id != id
   })
   data.instructors = filterInstructor
-
   fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
     if(err) return res.send('Write error')
-
-    return res.redirect('/instructors')
+    return res.redirect('instructors')
   })
 }

@@ -3,7 +3,11 @@
 :root{
   --color-white: #ffffff; /*variavel para reutilizar cor em css nomeada de "--color-green"*/
   --color-rocket: #7159c1; /*cor da rocketseat*/
+  --color-rocket-secondary: #644f79;
   --color-yellow: #F7DF1E;
+  --color-delete: rgb(243, 123, 123);
+  --color-delete-secondary: rgb(243, 0, 0);
+
 }
 
 *{
@@ -66,7 +70,7 @@ header{
   margin: 45px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  box-shadow: 10px 10px 20px #644f79;
+  box-shadow: 10px 10px 20px var(--color-rocket-secondary);
 
   /* animation */
   animation: up 200ms ease-out;
@@ -113,7 +117,8 @@ tbody tr td:first-child span{
   box-shadow: 3px 1px 6px -4px black;
   border: 2px solid white;
 }
-tbody tr td:last-child a{
+tbody tr td:last-child a,
+.table-container > a{
   background: var(--color-rocket);
   padding: 8px 16px;
   text-decoration: none;
@@ -122,6 +127,10 @@ tbody tr td:last-child a{
   font-size: 12px;
   border-radius: 4px;
 } 
+.table-container > a{
+  margin-bottom: 16px;
+  display: inline-block;
+}
 
 /* === DETALHES === */
 .details{
@@ -146,7 +155,8 @@ tbody tr td:last-child a{
   font-weight: bold;
   color: #555;
 }
-.details .item span{
+.details .item span,
+.table-container tbody tr td:nth-child(2) span{
   padding: 8px 16px;
   border-radius: 16px;
   background-color: var(--color-yellow);
@@ -159,7 +169,7 @@ tbody tr td:last-child a{
   font-size: 12px;
 }
 /* === FORM === */
-input{
+input, select{
   width: 100%;
   outline: none;
   font-size: 18px;
@@ -179,19 +189,22 @@ button[type='submit'], a.buttom{
   background-color: var(--color-rocket);
   color: white;
   font-size: 16px;
-  border-radius: 15px;
+  border-radius: 4px;
   margin-top: 32px;
   width: 100%;
 }
+button[type='submit']:hover,
+a.buttom:hover{
+  background-color: var(--color-rocket-secondary);
+
+}
 #form-delete button[type='submit']{
-  padding: 8px 32px;
-  background-color: red;
-  color: white;
-  font-size: 16px;
-  border-radius: 15px;
+  background-color: var(--color-delete);
   margin-top: 16px;
-  margin-left: 6rem;
-  width: 50%;
+}
+#form-delete button[type='submit']:hover{
+  background-color: var(--color-delete-secondary);
+
 }
 
 a.buttom{

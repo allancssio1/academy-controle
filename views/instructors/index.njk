@@ -3,7 +3,8 @@
 {% block content %}
 
   <div class="card table-container">
-    
+
+    <a href="/instructors/create">Novo</a>
     <table width="100%">
       
       <thead>
@@ -23,10 +24,11 @@
               <span style="background-image: url({{instructor.avatar_url}})"></span>
               {{instructor.name}}
             </td>
-            <td>{{instructor.services}}</td>
-            {# {% for service in instructor.services %}
-              <td>{{service}}</td>
-            {% endfor %} #}
+            <td>
+            {% for service in instructor.services %}
+              <span>{{service}}</span>
+            {% endfor %}
+            </td>
             <td>
               <a href="/instructors/{{instructor.id}}">Ver</a>
             </td>
